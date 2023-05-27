@@ -48,5 +48,6 @@ function handleClickOutside(event) {
 triggers.forEach(trigger => {
   trigger.addEventListener("mouseenter", handleEnter);
   trigger.addEventListener("mouseleave", handleLeave);
-  trigger.addEventListener("touchend", handleEnter);
+  trigger.addEventListener("touchstart", handleEnter);
+  trigger.addEventListener("touchend", handleLeave);
 });
