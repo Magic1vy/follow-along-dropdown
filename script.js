@@ -1,3 +1,4 @@
+const triggers = document.querySelectorAll('.cool > li');
 const background = document.querySelector('.dropdownBackground');
 const nav = document.querySelector('.top');
 
@@ -26,6 +27,7 @@ function handleEnter() {
   background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
 
   document.addEventListener('click', handleClickOutside);
+  document.addEventListener('touchstart', handleClickOutside);
 }
 
 function handleLeave() {
@@ -33,6 +35,7 @@ function handleLeave() {
   background.classList.remove("open");
 
   document.removeEventListener('click', handleClickOutside);
+  document.removeEventListener('touchstart', handleClickOutside);
 }
 
 function handleClickOutside(event) {
@@ -42,5 +45,8 @@ function handleClickOutside(event) {
   }
 }
 
-triggers.forEach(trigger => trigger.addEventListener("mouseenter", handleEnter));
-triggers.forEach(trigger => trigger.addEventListener("mouseleave", handleLeave));
+triggers.forEach(trigger => {
+  trigger.addEventListener("mouseenter", handleEnter);
+  trigger.addEventListener("mouseleave", handleLeave);
+  trigger.addEventListener("touchend", handleEnter);
+});
