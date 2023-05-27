@@ -56,7 +56,7 @@ img{
     transform: translateY(100px);
     will-change: opacity;
     display: none;
-    
+    z-index: -1;
 }
 .trigger-enter .dropdown {
     display: block;
